@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Apollo-ARK Quantum Defense Protocol v1.12",
+  "description": "Quantum-holographic cybersecurity framework with backward compatibility to v1.11",
+  "type": "object",
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "apollo_ark_v1.12"
+    },
+    "version": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+$"
+        },
+        "bridge_target": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+$"
+        },
+        "compatibility": {
+          "type": "object",
+          "properties": {
+            "quantum": {
+              "type": "object",
+              "properties": {
+                "min_hardware": {
+                  "type": "string",
+                  "enum": ["photonic_qpu", "superconducting_qpu"]
+                },
+                "fallback": {
+                  "type": "string",
+                  "pattern": "^iptables"
+                }
+              },
+              "required": ["min_hardware", "fallback"]
+            }
+          },
+          "required": ["quantum"]
+        }
+      },
+      "required": ["current", "bridge_target", "compatibility"]
+    },
+    "modules": {
+      "type": "object",
+      "properties": {
+        "quantum_ark": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "schwarzschild_holographic_storage"
+            },
+            "capacity": {
+              "type": "string",
+              "pattern": "^\\d+TB$"
+            },
+            "isolation": {
+              "type": "object",
+              "properties": {
+                "method": {
+                  "type": "string",
+                  "const": "bose_einstein_photon_barrier"
+                },
+                "density": {
+                  "type": "string",
+                  "pattern": "^\\d+e\\d+ photons/cm³$"
+                },
+                "compliance": {
+                  "type": "string",
+                  "const": "BekensteinBound"
+                }
+              },
+              "required": ["method", "density", "compliance"]
+            }
+          },
+          "required": ["type", "capacity", "isolation"]
+        },
+        "unicorn_filter": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "kolmogorov_zero_knowledge"
+            },
+            "scan": {
+              "type": "object",
+              "properties": {
+                "pre_execution": {
+                  "type": "object",
+                  "properties": {
+                    "function": {
+                      "type": "string",
+                      "const": "virgin_code_scan()"
+                    },
+                    "max_complexity": {
+                      "type": "string",
+                      "pattern": "^\\d+ bits$"
+                    },
+                    "impure_action": {
+                      "type": "string",
+                      "pattern": "^topological_qec\\(surface_code=\\d+\\)$"
+                    }
+                  },
+                  "required": ["function", "max_complexity", "impure_action"]
+                }
+              },
+              "required": ["pre_execution"]
+            }
+          },
+          "required": ["type", "scan"]
+        },
+        "pegasus_transport": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "alcubierre_warp_routing"
+            },
+            "speed": {
+              "type": "object",
+              "properties": {
+                "max": {
+                  "type": "string",
+                  "pattern": "^\\d+\\.\\d+c$"
+                },
+                "legacy": {
+                  "type": "string",
+                  "pattern": "^\\d+\\.\\d+c$"
+                }
+              },
+              "required": ["max", "legacy"]
+            },
+            "stabilization": {
+              "type": "object",
+              "properties": {
+                "method": {
+                  "type": "string",
+                  "const": "quantum_acoustic_tuning"
+                },
+                "frequency": {
+                  "type": "string",
+                  "const": "432Hz"
+                },
+                "guide": {
+                  "type": "string",
+                  "const": "autonomous_pan_432hz"
+                }
+              },
+              "required": ["method", "frequency", "guide"]
+            }
+          },
+          "required": ["type", "speed", "stabilization"]
+        }
+      },
+      "required": ["quantum_ark", "unicorn_filter", "pegasus_transport"]
+    },
+    "physics_metadata": {
+      "type": "object",
+      "properties": {
+        "equations": {
+          "type": "object",
+          "properties": {
+            "holographic_principle": {
+              "type": "string",
+              "const": "S = k_B·A/4l_p²"
+            },
+            "golden_ratio_tuning": {
+              "type": "string",
+              "const": "f = (c/λ) × Φ"
+            },
+            "planck_time_heartbeat": {
+              "type": "string",
+              "const": "1 HB = 1.16×10^42 t_p"
+            }
+          },
+          "required": ["holographic_principle", "golden_ratio_tuning", "planck_time_heartbeat"]
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": ".+\\(\\d{4}\\)\\..+"
+          },
+          "minItems": 1
+        }
+      },
+      "required": ["equations", "references"]
+    },
+    "compliance": {
+      "type": "object",
+      "properties": {
+        "theological": {
+          "type": "object",
+          "properties": {
+            "cherubim_validation": {
+              "type": "string",
+              "const": "EZEKIEL_10:12"
+            },
+            "ark_integrity": {
+              "type": "string",
+              "const": "GENESIS_7:17"
+            }
+          },
+          "required": ["cherubim_validation", "ark_integrity"]
+        },
+        "legal": {
+          "type": "object",
+          "properties": {
+            "license": {
+              "type": "string",
+              "const": "DPL-1.0"
+            },
+            "user_vow": {
+              "type": "string",
+              "const": "I vow not to weaponize this."
+            }
+          },
+          "required": ["license", "user_vow"]
+        }
+      },
+      "required": ["theological", "legal"]
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string",
+          "pattern": "^sudo apollo"
+        },
+        "output": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\[.+\\].+$"
+          },
+          "minItems": 1
+        }
+      },
+      "required": ["command", "output"]
+    }
+  },
+  "required": [
+    "protocol",
+    "version",
+    "modules",
+    "physics_metadata",
+    "compliance",
+    "deployment"
+  ],
+  "additionalProperties": false
+}
